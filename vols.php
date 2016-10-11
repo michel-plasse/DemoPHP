@@ -4,9 +4,13 @@ include_once "modele/modeleVols.php";
 
 /** Controleur */
 try {
-  $idAeroport = "CDG";
+  $idAeroport = filter_input(INPUT_GET, "idAeroport");
+  if ($idAeroport == NULL) {
+    die("L'aéroport de départ (idAeroport) doit être spécifié");
+  }
   $rows = getVols($idAeroport);
   ?>
+  <h1>Vols au départ de <?= $idAeroport ?></h1>
   <table border="1">
     <tr>
       <th>Départ</th>

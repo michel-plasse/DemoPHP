@@ -9,14 +9,14 @@ $connexion = getConnection();
 // Ecrire la requete sql
 $stmt = $connexion->prepare("
   SELECT
-    date_depart, vi.nom AS ville_arrivee,
-    a.nom AS aeroport_arrivee, date_arrivee
+    date_depart, va.nom AS ville_arrivee,
+    aa.nom AS aeroport_arrivee, date_arrivee
   FROM
     vol v
       INNER JOIN
-    aeroport a ON v.id_aeroport_arrivee = a.id_aeroport
+    aeroport aa ON v.id_aeroport_arrivee = aa.id_aeroport
       INNER JOIN
-    ville vi ON a.id_ville = vi.id_ville
+    ville va ON aa.id_ville = va.id_ville
   WHERE id_aeroport_depart = '$idAeroport'");
   // Executer la requete
   $stmt->execute();
