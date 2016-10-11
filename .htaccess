@@ -1,0 +1,10 @@
+# Renvoyer toutes les réponses en utf-8
+AddDefaultCharset utf-8
+
+# Réécriture d'URL activée
+RewriteEngine on
+# Répertoire de base pour réécriture
+RewriteBase /DemoPHP/
+# Exemple
+RewriteRule ^vols-(.+)$ vols.php?idAeroport=$1
+

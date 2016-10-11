@@ -11,6 +11,7 @@ try {
       <th>Code</th>
       <th>Nom</th>
       <th>Ville</th>
+      <th>Vols prévus</th>
     </tr>
     <?php
     foreach ($rows as $row) {
@@ -19,6 +20,9 @@ try {
       <td><?= $row["id_aeroport"]?></td>
       <td><?= $row["nom"]?></td>
       <td><?= $row["ville"]?></td>
+      <td>
+        <a href="vols-<?= $row["id_aeroport"]?>">Vols</a>
+      </td>
     </tr>
       <?php
     }
