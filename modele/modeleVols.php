@@ -17,7 +17,9 @@ $stmt = $connexion->prepare("
     aeroport aa ON v.id_aeroport_arrivee = aa.id_aeroport
       INNER JOIN
     ville va ON aa.id_ville = va.id_ville
-  WHERE id_aeroport_depart = '$idAeroport'");
+  WHERE id_aeroport_depart = :idAeroport");
+  // Associer au parametre :idAeroport sa valeur
+  $stmt->bindParam(":idAeroport", $idAeroport);
   // Executer la requete
   $stmt->execute();
   // Renvoyer les lignes

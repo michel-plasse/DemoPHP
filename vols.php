@@ -4,11 +4,14 @@ include_once "modele/modeleVols.php";
 
 /** Controleur */
 try {
+  // Recuperer le parametre idAeroport
   $idAeroport = filter_input(INPUT_GET, "idAeroport");
   if ($idAeroport == NULL) {
     die("L'aéroport de départ (idAeroport) doit être spécifié");
   }
+  // Demander au modele les vols correspondants
   $rows = getVols($idAeroport);
+  // Les afficher (vue)
   ?>
   <h1>Vols au départ de <?= $idAeroport ?></h1>
   <table border="1">
