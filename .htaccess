@@ -7,4 +7,3 @@ RewriteEngine on
 RewriteBase /DemoPHP/
 # Exemple
 RewriteRule ^vols-(.+)$ vols.php?idAeroport=$1
-
